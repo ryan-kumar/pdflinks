@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .header{
+            color: black;
+            text-align: center;
+            font-size: 25px;
+            text-decoration: underline;
+            line-height: 0;
+            margin-bottom: 0;
+        }
+        .desc{
+            margin-top: 0;
+            font-size: 18px;
+            text-align:center;
+        }
+        .view{
+           background-color: blanchedalmond;
+        }
+        .activeone{
+            background-color: blue;
+        }
+        .activetwo{
+            background-color: red;
+        }
+        .container{
+            width: 500px;
+            display:inline-block
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="header">
+        <h1>The Hope Herald Archive</h1>
+    </div>
+
+    <div class="desc">
+        <p>Days & Events of Hope Meadows; as written by past/previous residents</p>
+    </div>
+
+    <div id="carouselView" class="view">
+      <div class="pages">
+        <div class="container">
+            <div class="activeone">
+                <iframe src="https://hopemeadows.web.illinois.edu/s/test-site/2006_HopeHeraldSummer.pdf" width="100%" height="600px" style="border:none;"></iframe>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="activetwo">
+                <iframe src="" width="100%" height="600px" style="border:none;"></iframe>
+            </div>
+        </div>s
+      </div>
+      <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
+      <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+
+
+    <script>
+
+    </script>
+
+</body>
+</html>
