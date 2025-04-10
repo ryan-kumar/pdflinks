@@ -24,9 +24,41 @@
         .activetwo{
             background-color: red;
         }
+        .set{
+            display: none;
+            justify-content: center;
+            gap: 5px;
+            padding: 20px 0;
+        }
         .container{
             width: 500px;
-            display:inline-block
+            margin-bottom:0px;
+        }
+        .button{
+            background-color: salmon;      
+            color: white;              
+            border: none;                
+            padding: 12px 20px;          
+            font-size: 24px;            
+            cursor: pointer;             
+            border-radius: 8px;         
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 10px;   
+        }
+        .button:hover{
+            background-color: #555;
+            transform: scale(1.1);
+        }
+        .buttonContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px; /* space between buttons */
+            margin-top: 0px;
+        }
+        .set.on{
+            display:flex;
         }
     </style>
 </head>
@@ -42,27 +74,68 @@
 
     <div id="carouselView" class="view">
       <div class="pages">
-        <div class="container">
-            <div class="activeone">
-                <iframe src="https://hopemeadows.web.illinois.edu/s/test-site/2006_HopeHeraldSummer.pdf" width="100%" height="600px" style="border:none;"></iframe>
-            </div>
-        </div>
 
-        <div class="container">
-            <div class="activetwo">
-                <iframe src="" width="100%" height="600px" style="border:none;"></iframe>
+        <div class="set">
+            <div class="container">
+                <div class="one">
+                    <iframe src="Screenshot 2025-04-08 at 2.40.01 PM.png" width="100%" height="600px" style="border:none;"></iframe>
+                </div>
             </div>
-        </div>s
+  
+            <div class="container">
+                <div class="two">
+                    <iframe src="Screenshot 2025-04-08 at 3.53.40 PM.png" width="100%" height="600px" style="border:none;"></iframe>
+                </div>
+            </div>
+          </div>
+
+        <div class="set">
+            <div class="container">
+                <div class="one">
+                    <iframe src="pics.png" width="100%" height="600px" style="border:none;"></iframe>
+                </div>
+            </div>
+  
+            <div class="container">
+                <div class="two">
+                    <iframe src="" width="100%" height="600px" style="border:none;"></iframe>
+                </div>
+            </div>
+          </div>
+        
+
       </div>
-      <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
-      <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+      <div class="buttonContainer">
+        <button class="button" onclick="prevSlide()">&#10094;</button>
+        <button class="button" onclick="nextSlide()">&#10095;</button>
+      </div>
     </div>
-
-
-
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        let current = 0;
+        const slides = document.querySelectorAll('.set'); 
 
+        function displaySlide(index) {
+
+            slides.forEach(slide => slide.classList.remove('on'));
+
+            slides[current].classList.add('on');
+
+           current = index;
+        }
+        window.nextSlide = function() {
+            if (current != slides.length - 1) {
+                displaySlide(current + 1);
+            }
+        }
+
+        window.prevSlide = function() {
+            if (current != 0) {
+                displaySlide(current - 1);
+            }
+        }
+        displaySlide(current);
+    });
     </script>
-
 </body>
 </html>
