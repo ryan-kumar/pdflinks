@@ -30,15 +30,11 @@
             gap: 5px;
             padding: 20px 0;
         }
-        .container{
-            width: 500px;
-            margin-bottom:0px;
-        }
         .button{
             background-color: salmon;      
             color: white;              
             border: none;                
-            padding: 12px 20px;          
+            padding: 14px 40px;          
             font-size: 24px;            
             cursor: pointer;             
             border-radius: 8px;         
@@ -60,6 +56,26 @@
         .set.on{
             display:flex;
         }
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 4px solid #e3e3e3;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        .styled-pdf {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .styled-pdf {
+            height: 500px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -78,13 +94,13 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="Screenshot 2025-04-08 at 2.40.01 PM.png" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/15ca0e7ae56aac645bd4de9a3ac93082aadf2fe7.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
                 </div>
             </div>
   
             <div class="container">
                 <div class="two">
-                    <iframe src="Screenshot 2025-04-08 at 3.53.40 PM.png" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/23739e0975cf6b68c383f6d468aaddcf556518b6.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
                 </div>
             </div>
           </div>
@@ -92,13 +108,13 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="pics.png" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f016475f5aeb41ac84667eac2475a50e9e20b487.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
                 </div>
             </div>
   
             <div class="container">
                 <div class="two">
-                    <iframe src="" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/46549e86d7a3a544438fbf76ef9bf7c5504ee314.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
                 </div>
             </div>
           </div>
@@ -113,7 +129,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
         let current = 0;
-        const slides = document.querySelectorAll('.set'); 
+        const slides = Array.from(document.querySelectorAll('.set')).reverse(); 
 
         function displaySlide(index) {
 
@@ -124,15 +140,19 @@
            current = index;
         }
         window.nextSlide = function() {
-            if (current != slides.length - 1) {
+            console.log(current);
+            if (current !=  slides.length -1) {
                 displaySlide(current + 1);
             }
+            console.log(current);
+            
         }
 
         window.prevSlide = function() {
             if (current != 0) {
                 displaySlide(current - 1);
             }
+            
         }
         displaySlide(current);
     });
