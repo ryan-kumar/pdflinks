@@ -53,6 +53,11 @@
             gap: 5px; /* space between buttons */
             margin-top: 0px;
         }
+        .button.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+            cursor: default;
+        }
         .set.on{
             display:flex;
         }
@@ -76,6 +81,10 @@
             height: 500px;
             }
         }
+        .pdfbox{
+            width: 100%;
+            height: 750px;
+        }
     </style>
 </head>
 <body>
@@ -94,13 +103,13 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/15ca0e7ae56aac645bd4de9a3ac93082aadf2fe7.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/15ca0e7ae56aac645bd4de9a3ac93082aadf2fe7.pdf&amp;embedded=true"  class="pdfbox" style="border:none;"></iframe>
                 </div>
             </div>
   
             <div class="container">
                 <div class="two">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/23739e0975cf6b68c383f6d468aaddcf556518b6.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/23739e0975cf6b68c383f6d468aaddcf556518b6.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
                 </div>
             </div>
           </div>
@@ -108,13 +117,13 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f016475f5aeb41ac84667eac2475a50e9e20b487.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f016475f5aeb41ac84667eac2475a50e9e20b487.pdf&amp;embedded=true"class="pdfbox" style="border:none;"></iframe>
                 </div>
             </div>
   
             <div class="container">
                 <div class="two">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/46549e86d7a3a544438fbf76ef9bf7c5504ee314.pdf&embedded=true" width="100%" height="600px" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/46549e86d7a3a544438fbf76ef9bf7c5504ee314.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
                 </div>
             </div>
           </div>
@@ -122,22 +131,30 @@
 
       </div>
       <div class="buttonContainer">
-        <button class="button" onclick="prevSlide()">&#10094;</button>
-        <button class="button" onclick="nextSlide()">&#10095;</button>
+        <button class="button" id="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="button" id="next" onclick="nextSlide()">&#10095;</button>
       </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", async function () {
         let current = 0;
-        const slides = Array.from(document.querySelectorAll('.set')).reverse(); 
-
+        const slides = Array.from(document.querySelectorAll('.set')); 
         function displaySlide(index) {
-
             slides.forEach(slide => slide.classList.remove('on'));
+            slides[index].classList.add('on');
+            current = index;
+            dullButtons();
+        }
+        function dullButtons() {
+            const prev = document.getElementById('prev');
+            const next = document.getElementById('next');
+            
+            prev.classList.remove('disabled');
+            next.classList.remove('disabled');
 
-            slides[current].classList.add('on');
+            if (current == 0) prev.classList.add('disabled');
+            if (current == slides.length -1) next.classList.add('disabled');
 
-           current = index;
         }
         window.nextSlide = function() {
             console.log(current);
