@@ -260,55 +260,82 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-        let current = 0;
-        const slides = Array.from(document.querySelectorAll('.set')); 
-        function displaySlide(index) {
-            slides.forEach(slide => slide.classList.remove('on'));
-            slides[index].classList.add('on');
-            current = index;
-            dullButtons();
-        }
-        function dullButtons() {
-            const prev = document.getElementById('prev');
-            const next = document.getElementById('next');
-            
-            prev.classList.remove('disabled');
-            next.classList.remove('disabled');
+            let current = 0;
+            const slides = Array.from(document.querySelectorAll('.set')); 
+    
+            function forceReloadPDFs(slide) {
+                const iframes = slide.querySelectorAll("iframe");
 
-            if (current == 0) prev.classList.add('disabled');
-            if (current == slides.length -1) next.classList.add('disabled');
+                iframes.forEach((iframe) => {
+                    let loaded = false;
 
-        }
-        window.pageNav = function(newsletter) {
-            if (newsletter === 'Sm2010') {
-                current = 1;
-                displaySlide(current);
-            } else if (newsletter === 'Sm2011') {
-                current = 3;
-                displaySlide(current);
+                    // Set up a listener to mark it as loaded
+                    iframe.onload = () => {
+                        loaded = true;
+                    };
+
+                    // Wait 3 seconds, then force reload if not loaded
+                    setTimeout(() => {
+                        if (!loaded) {
+                            const src = iframe.src;
+                            iframe.src = '';
+                            iframe.src = src;
+                        }
+                    }, 3000);
+                });
             }
-        }
-        window.nextSlide = function() {
-            if (current !=  slides.length -1) {
-                displaySlide(current + 1);
-            } 
-        }
 
-        window.prevSlide = function() {
-            if (current != 0) {
-                displaySlide(current - 1);
+    
+            function displaySlide(index) {
+                slides.forEach(slide => slide.classList.remove('on'));
+                slides[index].classList.add('on');
+                current = index;
+                dullButtons();
+                forceReloadPDFs(slides[index]); // Reload PDFs
             }
-            
-        }
-        displaySlide(current);
-    });
-    document.addEventListener("keydown", function(event){
-        if (event.key === "ArrowLeft") {
-            prevSlide();
-        } else if (event.key === "ArrowRight") {
-            nextSlide();
-        }
-    });
+    
+            function dullButtons() {
+                const prev = document.getElementById('prev');
+                const next = document.getElementById('next');
+                
+                prev.classList.remove('disabled');
+                next.classList.remove('disabled');
+    
+                if (current == 0) prev.classList.add('disabled');
+                if (current == slides.length - 1) next.classList.add('disabled');
+            }
+    
+            window.pageNav = function(newsletter) {
+                if (newsletter === 'Sm2010') {
+                    displaySlide(1);
+                } else if (newsletter === 'Sm2011') {
+                    displaySlide(3);
+                }
+            };
+    
+            window.nextSlide = function () {
+                if (current < slides.length - 1) {
+                    displaySlide(current + 1);
+                }
+            };
+    
+            window.prevSlide = function () {
+                if (current > 0) {
+                    displaySlide(current - 1);
+                }
+            };
+    
+            displaySlide(current);
+        });
+    
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "ArrowLeft") {
+                prevSlide();
+            } else if (event.key === "ArrowRight") {
+                nextSlide();
+            }
+        });
     </script>
+    
 </body>
 </html>
