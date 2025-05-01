@@ -4,7 +4,7 @@
     <style>
          body {
             font-family: 'EB Garamond', serif;
-            background-color: #fefcf9;
+            background-color: #FFFBF0;
             color: #333;
             background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
         }
@@ -82,26 +82,31 @@
             display: flex;
         }
         .buttonContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            margin-top: 0;
+            position: relative;
         }
         .button {
+            position: absolute;
+            top: -450px;
+            transform: none;
             background-color: #5a4634;
             color: #fffdf9;
             border: none;
-            padding: 12px 36px;
-            font-size: 20px;
+            padding: 12px 43px;
+            font-size: 24px;
             cursor: pointer;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, transform 0.2s;
+            z-index: 10;
+        }
+        #prev {
+            left: -100px; /* adjust this as needed */
+        }
+        #next {
+            right: -100px; /* adjust this as needed */
         }
         .button:hover {
             background-color: #8a6d46;
-            transform: scale(1.05);
         }
         .button.disabled {
             opacity: 0.4;
@@ -150,7 +155,7 @@
         }
         .view{
             margin-top: 40px;
-            background-color: #284026; 
+            background-color: #667662; 
             border: 3px solid #d8cfc4; 
             border-radius: 12px;
             width: 100%;
@@ -165,6 +170,8 @@
             padding-left: 40px;
             padding-right: 40px;
             position: relative;
+            transform: scale(0.9); 
+            transform-origin: top center;
 
         }
       
@@ -300,13 +307,14 @@
             <div class="two"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/e8a34582f3f5eb9bbed2981f170063ad204bfe4e.pdf&amp;embedded=true" style="border:none;"></iframe></div>
             </div>
         </div>
-            
 
-</div>
-      <div class="buttonContainer">
+    <div class="buttonContainer">
         <button class="button" id="prev" onclick="prevSlide()">&#10094;</button>
         <button class="button" id="next" onclick="nextSlide()">&#10095;</button>
-      </div>
+    </div>    
+
+</div>
+      
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
