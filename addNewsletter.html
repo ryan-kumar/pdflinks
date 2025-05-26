@@ -5,11 +5,67 @@
             .h1{
                 text-align: center;
             }
+            .parent{
+                display: inline-flex;
+            }
+            .child{
+            
+            }
+            .head2{
+            
+            }
+            .container {
+                width: 500px; /* Adjust as needed */
+                height: 200px; /* Adjust as needed */
+                position: relative; /* Needed for absolute positioning of the line */
+                /* Add other styles for the container, if desired */
+            }
+
+            .line {
+                position: absolute;
+                left: 50%; /* Centers the line horizontally */
+                top: 0;
+                height: 100%; /* Line takes up the full height of the container */
+                width: 2px; /* Adjust line thickness */
+                background-color: black; /* Or your desired line color */
+                transform: translateX(-50%); /* Further centers the line */
+            }
         </style>
     </head>
     <body>
         <h1 class="h1">Update Hope Herald Archive</h1>
-        <p>This is a tool that allows you to add Newsletters to the Hope Herald Archive display.</p>
-        <p>Before you proceed, please view the following tutorial video for detailed instructions!</p>
+        <div class="parent">
+    
+            <div class="child">
+                <p>This is a tool that allows you to add Newsletters to the Hope Herald Archive display.</p>
+
+                <p>Before you proceed, please view the following tutorial video for detailed instructions!</p>
+                <iframe width="680" height="500" src="https://www.youtube.com/embed/AnfPFpDlFBo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+          
+                <h3 class="head2">Ready to start?</h3>
+                <p>Please fill out the fields below to recieve the updated Hope Herald Archive code:</p>
+                <form>
+                    <label for="chapterName">Newsletter Edition:</label><br>
+                    <input type="text" id="chapterName" name="chapterName" placeholder="e.g. Summer 2010" style="width: 100%; padding: 8px; margin-top: 5px;"><br><br>
+                  
+                    <label for="summary">Newsletter Page Links:</label><br>
+                    <textarea id="summary" name="summary" rows="6" placeholder="" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea><br><br>
+                  
+                    <label for="content">Current Source Code:</label><br>
+                    <textarea id="content" name="content" rows="20" placeholder="" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea><br><br>
+                  
+                    <input type="submit" value="Add Newsletter" style="padding: 10px 20px;">
+                  </form>
+                  
+            </div>
+      
+
+            <div class="child">
+                    <h3>Result:</h3>
+            
+            </div>
+
+        </div>
     </body>
 </html>

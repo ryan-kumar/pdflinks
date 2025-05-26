@@ -205,11 +205,11 @@
                         <h1>Table of contents</h1>
                     </div> 
                         <div class="tbox">
-                            <a href="#" onclick="pageNav('Sm2010'); return false;" class="bullet">1.&#41; Summer 2010</a>
+                            <a href="#" onclick="pageNav('Summer 2010'); return false;" class="bullet">1.&#41; Summer 2010</a>
                             <br/>
-                            <a href="#" onclick="pageNav('Sm2011'); return false;" class="bullet">2.&#41; Summer 2011</a>
+                            <a href="#" onclick="pageNav('Summer 2011'); return false;" class="bullet">2.&#41; Summer 2011</a>
                             <br/>   
-                            <a href="#" onclick="pageNav('Wn2012'); return false;" class="bullet">3.&#41; Winter 2012</a>
+                            <a href="#" onclick="pageNav('Winter 2012'); return false;" class="bullet">3.&#41; Winter 2012</a>
                         </div>
                 </div>
             </div>
@@ -320,7 +320,11 @@
         document.addEventListener("DOMContentLoaded", function () {
             let current = 0;
             const slides = Array.from(document.querySelectorAll('.set')); 
-    
+            const chapters = {
+                "Summer 2010" : 1,
+                "Summer 2011" : 3,
+                "Winter 2012" : 6
+            };
             function forceReloadPDFs(slide) {
                 const iframes = slide.querySelectorAll("iframe");
 
@@ -379,13 +383,7 @@
             }
     
             window.pageNav = function(newsletter) {
-                if (newsletter === 'Sm2010') {
-                    displaySlide(1);
-                } else if (newsletter === 'Sm2011') {
-                    displaySlide(3);
-                } else if (newsletter === 'Wn2012') {
-                    displaySlide(6); 
-                }
+                displaySlide(chapters[newsletter]);
             };
     
             window.nextSlide = function () {
