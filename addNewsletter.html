@@ -76,15 +76,19 @@
         </div>
         </div>
         <script>
+            // perform tasks when submit is pressed
             document.getElementById('submit').addEventListener('click', () => {
+
+            // grab provided inputs 
             const edition = document.getElementById("chapterName").value;
             const pglinks = document.getElementById("summary").value.split(/\r?\n/);
             const content = document.getElementById("content").value;
             const parser = new DOMParser();
+
+            // create html from raw plaintext
             const doc = parser.parseFromString(content, 'text/html');
             
 
-            // do whatever you want here
             const toc = doc.querySelector(".tbox");
 
             toc.appendChild(document.createElement('br'));
@@ -94,11 +98,13 @@
             a.setAttribute('class', 'bullet');
             a.textContent = edition;
             toc.appendChild(a);
+            
+            
 
 
 
 
-            //produce da string output
+            //produce string output
 
             const output = doc.documentElement.outerHTML;
             document.getElementById('result').textContent = output
