@@ -2,24 +2,30 @@
 <html>
     <head>
         <style>
+            .fullwrap {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
             .h1{
                 text-align: center;
             }
             .parent{
-                display: inline-flex;
-            }
-            .child{
+                display: flex;
             
+            }
+            .child2{
+                position: relative;
+                left: 5%
             }
             .head2{
             
             }
-            .container {
-                width: 500px; /* Adjust as needed */
-                height: 200px; /* Adjust as needed */
-                position: relative; /* Needed for absolute positioning of the line */
-                /* Add other styles for the container, if desired */
+            .result {
+                border-style: dashed;
+                height: 90%;
+                width: 45vw;
             }
+       
 
             .line {
                 position: absolute;
@@ -33,6 +39,7 @@
         </style>
     </head>
     <body>
+        <div class="fullwrap">
         <h1 class="h1">Update Hope Herald Archive</h1>
         <div class="parent">
     
@@ -40,32 +47,66 @@
                 <p>This is a tool that allows you to add Newsletters to the Hope Herald Archive display.</p>
 
                 <p>Before you proceed, please view the following tutorial video for detailed instructions!</p>
-                <iframe width="680" height="500" src="https://www.youtube.com/embed/AnfPFpDlFBo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="680" height="500" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
           
                 <h3 class="head2">Ready to start?</h3>
                 <p>Please fill out the fields below to recieve the updated Hope Herald Archive code:</p>
-                <form>
+                <form spellcheck="false">
                     <label for="chapterName">Newsletter Edition:</label><br>
                     <input type="text" id="chapterName" name="chapterName" placeholder="e.g. Summer 2010" style="width: 100%; padding: 8px; margin-top: 5px;"><br><br>
                   
-                    <label for="summary">Newsletter Page Links:</label><br>
+                    <label for="summary">Newsletter Page Links (please enter each one on a new line):</label><br>
                     <textarea id="summary" name="summary" rows="6" placeholder="" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea><br><br>
                   
                     <label for="content">Current Source Code:</label><br>
                     <textarea id="content" name="content" rows="20" placeholder="" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea><br><br>
                   
-                    <input type="submit" value="Add Newsletter" style="padding: 10px 20px;">
                   </form>
+                  <button id="submit" style="padding: 10px 20px;">Create Updated Display</button>
                   
             </div>
       
-
-            <div class="child">
+            <div class="child2">
                     <h3>Result:</h3>
+                    <textarea id="result" name="result" rows="90" placeholder="" style="width: 45vw;  margin-top: 5px;"></textarea>
             
             </div>
 
         </div>
+        </div>
+        <script>
+            document.getElementById('submit').addEventListener('click', () => {
+            const edition = document.getElementById("chapterName").value;
+            const pglinks = document.getElementById("summary").value.split(/\r?\n/);
+            const content = document.getElementById("content").value;
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(content, 'text/html');
+            
+
+            // do whatever you want here
+            const toc = doc.querySelector(".tbox");
+
+            toc.appendChild(document.createElement('br'));
+            const a = document.createElement('a');
+            a.setAttribute('href', '#');
+            a.setAttribute('onclick', `pageNav('${edition}'); return false;`);
+            a.setAttribute('class', 'bullet');
+            a.textContent = edition;
+            toc.appendChild(a);
+
+
+
+
+            //produce da string output
+
+            const output = doc.documentElement.outerHTML;
+            document.getElementById('result').textContent = output
+
+
+
+
+            });
+        </script>
     </body>
 </html>
