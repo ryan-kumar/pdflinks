@@ -4,6 +4,10 @@
 - Displays a "book-like" viewer that can be progressed left and right in order to sequentially view Newsletter editions.
 - Currently live at: https://hopemeadows.web.illinois.edu/s/archive/page/display
 
+## Running Locally
+
+- Open index.html in any browser.
+
 ### TODO:
 
 - Allow api access from server through cors-policy changes
