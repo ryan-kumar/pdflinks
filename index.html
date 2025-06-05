@@ -42,10 +42,10 @@
         .pdfbox {
             width: 100%;
             height: 700px;
-            border: 1px solid #c9b7a1;
-            border-radius: 4px;
+
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             background-color: #fffdf9;
+            border:none;
         }
         @media (max-width: 768px) {
             .pdfbox {
@@ -174,6 +174,9 @@
             transform-origin: top center;
 
         }
+        .hidden {
+            display: none;
+        }
       
     
     </style>
@@ -216,17 +219,17 @@
         </div>
 
 
-
+    <div id="target">
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/15ca0e7ae56aac645bd4de9a3ac93082aadf2fe7.pdf&amp;embedded=true"  class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/15ca0e7ae56aac645bd4de9a3ac93082aadf2fe7.pdf&amp;embedded=true"  class="pdfbox"></iframe>
                 </div>
             </div>
   
             <div class="container">
                 <div class="two">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/23739e0975cf6b68c383f6d468aaddcf556518b6.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/23739e0975cf6b68c383f6d468aaddcf556518b6.pdf&amp;embedded=true" class="pdfbox" ></iframe>
                 </div>
             </div>
         </div>
@@ -234,13 +237,13 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f016475f5aeb41ac84667eac2475a50e9e20b487.pdf&amp;embedded=true"class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f016475f5aeb41ac84667eac2475a50e9e20b487.pdf&amp;embedded=true"class="pdfbox" ></iframe>
                 </div>
             </div>
   
             <div class="container">
                 <div class="two">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/46549e86d7a3a544438fbf76ef9bf7c5504ee314.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/46549e86d7a3a544438fbf76ef9bf7c5504ee314.pdf&amp;embedded=true" class="pdfbox" ></iframe>
                 </div>
             </div>
         </div>
@@ -248,13 +251,13 @@
       <div class="set">
         <div class="container">
             <div class="one">
-                <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/c82972fa4b500771d371642e85625dcd4cd9491e.pdf&amp;embedded=true"  class="pdfbox" style="border:none;"></iframe>
+                <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/c82972fa4b500771d371642e85625dcd4cd9491e.pdf&amp;embedded=true"  class="pdfbox" ></iframe>
             </div>
         </div>
 
         <div class="container">
             <div class="two">
-                <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/1dc5984ff406be688ce899d26c24f9311ab65733.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
+                <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/1dc5984ff406be688ce899d26c24f9311ab65733.pdf&amp;embedded=true" class="pdfbox" ></iframe>
             </div>
         </div>
       </div>
@@ -263,13 +266,13 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/18db5b6c25f71cf1adbfb2732818a91ae3d3e1f5.pdf&amp;embedded=true"  class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/18db5b6c25f71cf1adbfb2732818a91ae3d3e1f5.pdf&amp;embedded=true"  class="pdfbox" ></iframe>
                 </div>
             </div>
 
             <div class="container">
                 <div class="two">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/0dd0df7ce110afe62b508534925440eb2a5e8a22.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/0dd0df7ce110afe62b508534925440eb2a5e8a22.pdf&amp;embedded=true" class="pdfbox" ></iframe>
                 </div>
             </div>
         </div>
@@ -277,36 +280,38 @@
         <div class="set">
             <div class="container">
                 <div class="one">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/7b42b4e9ecf3208e4be63a8cc60ce36b41389720.pdf&amp;embedded=true"  class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/7b42b4e9ecf3208e4be63a8cc60ce36b41389720.pdf&amp;embedded=true"  class="pdfbox" ></iframe>
                 </div>
             </div>
 
             <div class="container">
                 <div class="two">
-                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f3a5b5cac9a3f4c651ebe5fbe0c05aae536d6741.pdf&amp;embedded=true" class="pdfbox" style="border:none;"></iframe>
+                    <iframe src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/f3a5b5cac9a3f4c651ebe5fbe0c05aae536d6741.pdf&amp;embedded=true" class="pdfbox" ></iframe>
                 </div>
             </div>
         </div>
 
         <div class="set">
             <div class="container">
-            <div class="one"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/5e0b31828d42469482cc4f8363393264faf00166.pdf&amp;embedded=true" style="border:none;"></iframe></div>
+            <div class="one"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/5e0b31828d42469482cc4f8363393264faf00166.pdf&amp;embedded=true" ></iframe></div>
             </div>
             
             <div class="container">
-            <div class="two"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/301be95108556d200bbbe7ebff11f6a2cf9323c7.pdf&amp;embedded=true" style="border:none;"></iframe></div>
+            <div class="two"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/301be95108556d200bbbe7ebff11f6a2cf9323c7.pdf&amp;embedded=true" ></iframe></div>
             </div>
         </div>
 
         <div class="set">
             <div class="container">
-            <div class="one"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/a59fa9f35f9424fc2621c0a3d545901f5ac5cd0e.pdf&amp;embedded=true" style="border:none;"></iframe></div>
+            <div class="one"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/a59fa9f35f9424fc2621c0a3d545901f5ac5cd0e.pdf&amp;embedded=true" ></iframe></div>
             </div>
             
             <div class="container">
-            <div class="two"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/e8a34582f3f5eb9bbed2981f170063ad204bfe4e.pdf&amp;embedded=true" style="border:none;"></iframe></div>
+            <div class="two"><iframe class="pdfbox" src="https://docs.google.com/gview?url=https://hopemeadows.web.illinois.edu/files/original/e8a34582f3f5eb9bbed2981f170063ad204bfe4e.pdf&amp;embedded=true"></iframe></div>
             </div>
         </div>
+
+    </div>
 
     <div class="buttonContainer">
         <button class="button" id="prev" onclick="prevSlide()">&#10094;</button>

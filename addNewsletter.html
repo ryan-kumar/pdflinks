@@ -3,7 +3,7 @@
     <head>
         <style>
             .fullwrap {
-                margin-left: 5%;
+                margin-left: 2%;
                 margin-right: 5%;
             }
             .h1{
@@ -15,7 +15,7 @@
             }
             .child2{
                 position: relative;
-                left: 5%
+                left: 2%
             }
             .head2{
             
@@ -24,17 +24,6 @@
                 border-style: dashed;
                 height: 90%;
                 width: 45vw;
-            }
-       
-
-            .line {
-                position: absolute;
-                left: 50%; /* Centers the line horizontally */
-                top: 0;
-                height: 100%; /* Line takes up the full height of the container */
-                width: 2px; /* Adjust line thickness */
-                background-color: black; /* Or your desired line color */
-                transform: translateX(-50%); /* Further centers the line */
             }
         </style>
     </head>
@@ -99,7 +88,44 @@
             a.textContent = edition;
             toc.appendChild(a);
             
-            
+            // add the js stuff here
+
+            console.log(pglinks.length);
+            // add in the pages
+            const pages = doc.getElementById("target");
+
+            for (let i = 0; i < pglinks.length; i+=2) {
+                // create all the elements
+                const set = document.createElement('div');
+                const containOne = document.createElement('div');
+                const containTwo = document.createElement('div');
+                const innerOne = document.createElement('div');
+                const innerTwo = document.createElement('div');
+                const iframeOne = document.createElement('iframe');
+                const iframeTwo = document.createElement('iframe');
+
+
+                // set their classes 
+                set.classList.add("set");
+                containOne.classList.add("container");
+                containTwo.classList.add("container");
+                innerOne.classList.add("one");
+                innerTwo.classList.add("two");
+                iframeOne.classList.add("pdfbox");
+                iframeTwo.classList.add("pdfbox");
+
+                iframeOne.setAttribute('src', `https://docs.google.com/gview?url=${pglinks[i]}&amp;embedded=true`);
+                if (i < pglinks.length - 1) iframeTwo.setAttribute('src', `https://docs.google.com/gview?url=${pglinks[i + 1]}&amp;embedded=true`);
+
+                // construct proper nesting
+                innerOne.appendChild(iframeOne);
+                containOne.appendChild(innerOne);
+                innerTwo.appendChild(iframeTwo);
+                containTwo.appendChild(innerTwo);
+                set.appendChild(containOne);
+                set.appendChild(containTwo);
+                pages.appendChild(set);
+            }
 
 
 
